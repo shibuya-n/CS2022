@@ -10,7 +10,7 @@ public class controlFlow {
     }
     public static void ask() {
         Scanner scannerObject = new Scanner(System.in);
-        System.out.println("----- PLAY BLACKJACK. (Yes/No) -----");
+        System.out.println("----- [PLAY BLACKJACK.] [yes/no] -----");
         String userAnswer = scannerObject.nextLine();
         String yes = "yes";
         String no = "no";
@@ -22,14 +22,14 @@ public class controlFlow {
             }
             System.out.println(" ");
             System.out.println(" ");
-            System.out.println("GAME INITIALIZED");
+            System.out.println("[GAME INITIALIZED]");
             play();
 
 
         } else if (userAnswer.toLowerCase().equals(no)) {
             System.out.println("see you next time...");
         } else {
-            System.out.println("ERROR.");
+            System.out.println("[ERROR].");
             ask();
 
         }
@@ -39,12 +39,20 @@ public class controlFlow {
     }
     public static void bar() throws Exception {
         String anim= "|/-·-\\";
-        for (int x =0 ; x <= 100 ; x++) {
-            String data = "\r" + anim.charAt(x % anim.length()) + " " + x + " LOADING...";
+        for (int x = 0 ; x <= 100 ; x++) {
+            String data = "\r" + anim.charAt(x % anim.length()) + " " + x +"%" + " [LOADING...]";
             System.out.write(data.getBytes());
             Thread.sleep(100);
         }
     }
-
+//    public static void print(String args){
+//        for (int i = 0; i < args.length(); i++){
+//            System.out.print(args.substring(i,i+1));
+//            try{
+//                Thread.sleep(80);
+//            } catch(InterruptedException e){
+//            }
+//        }
 }
+
 
