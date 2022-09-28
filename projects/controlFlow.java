@@ -25,4 +25,7 @@ public class controlFlow {
 
         }
     }
+    public static void play() {
+        System.out.println("You suck.");
+    }
 }
