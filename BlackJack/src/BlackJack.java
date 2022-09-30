@@ -1,7 +1,6 @@
-package projects;
 import java.util.Scanner;
 
-public class controlFlow {
+public class BlackJack {
     public static int score = 0;
     public static String[] cards = {};
     public static void main(String[] args){
