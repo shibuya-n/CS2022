@@ -38,7 +38,7 @@ public class BlackJack {
     }
 
     public static void play() {
-        System.out.println("W.I.P");
+        System.out.println();
     }
 
 
