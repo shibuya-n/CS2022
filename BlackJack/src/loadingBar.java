@@ -1,3 +1,5 @@
+// PURELY COSMETIC; loading bar for when player says yes
+
 public class loadingBar {
 
     public static void bar() throws Exception {

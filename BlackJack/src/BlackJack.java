@@ -10,6 +10,7 @@ public class BlackJack {
     }
 
 
+ // Asks for whether the user wants to play
     public static void ask() {
         Scanner scannerObject = new Scanner(System.in);
         System.out.println("----- [PLAY BLACKJACK.] [yes/no] -----");
@@ -31,14 +32,14 @@ public class BlackJack {
         } else if (userAnswer.toLowerCase().equals(no)) {
             System.out.println("see you next time...");
         } else {
-            System.out.println("[ERROR].");
+            System.out.println("[SYNTAX ERROR. PLEASE TRY AGAIN.]");
             ask();
 
         }
     }
 
     public static void play() {
-        System.out.println();
+        Dealer.initialize();
     }
 
 
