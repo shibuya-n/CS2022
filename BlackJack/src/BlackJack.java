@@ -48,6 +48,9 @@ public class BlackJack {
 
     public static void play() {
         Dealer.initialize();
+        if (Dealer.userHandCards.size() < 2) {
+            Dealer.getCard();
+        }
     }
 
 

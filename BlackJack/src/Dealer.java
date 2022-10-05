@@ -149,8 +149,9 @@ public class Dealer {
             }
         }
 
-        System.out.println("Your cards: " + userHandCards);
-        System.out.println("Your total: " + userHand);
+        System.out.println("[Hit!]");
+        System.out.println("{Your cards: " + userHandCards + "}");
+        System.out.println("[Your total: " + userHand + "]");
 
     }
 
