@@ -148,11 +148,11 @@ public class Dealer {
 
             }
         }
-
         System.out.println("[Hit!]");
         System.out.println("{Your cards: " + userHandCards + "}");
         System.out.println("[Your total: " + userHand + "]");
-
+        int newRange = eRange - 1;
+        newRange = eRange;
     }
 
 

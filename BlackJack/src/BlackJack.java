@@ -51,6 +51,27 @@ public class BlackJack {
         if (Dealer.userHandCards.size() < 2) {
             Dealer.getCard();
         }
+        hit();
+
+    }
+    public static void hit(){
+        Scanner scannerObject = new Scanner(System.in);
+        System.out.println("----- [DRAW A CARD?] [hit/stay] -----");
+        String userAnswer = scannerObject.nextLine();
+        String hit = "hit";
+        String stand = "stand";
+        if (userAnswer.toLowerCase().equals(hit)){
+            Dealer.getCard();
+            hit();
+            Check.playerCheck();
+        }
+        else if (userAnswer.toLowerCase().equals(stand)){
+            Check.playerCheck();
+        }
+        else {
+            System.out.println("[SYNTAX ERROR. PLEASE TRY AGAIN.]");
+            hit();
+        }
     }
 
 
