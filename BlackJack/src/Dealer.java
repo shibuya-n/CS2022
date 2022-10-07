@@ -77,7 +77,7 @@ public class Dealer {
             else if (hearts.get(eRange).equals("ten") || hearts.get(eRange).equals("jack") || hearts.get(eRange).equals("queen") || hearts.get(eRange).equals("king")) {
                 userHand += 10;
                 String card = hearts.remove(eRange);
-                userHandCards.add(card + "o f HEARTS");
+                userHandCards.add(card + "of HEARTS");
             }
             else {
                 int cardNumber = Integer.parseInt(hearts.get(eRange));
@@ -163,8 +163,7 @@ public class Dealer {
         System.out.println("{Your cards: " + userHandCards + "}");
         System.out.println("[Your total: " + userHand + "]");
         eNum--;
+        Check.playerCheck();
     }
-
-
 
 }

@@ -64,6 +64,9 @@ public class BlackJack {
             Dealer.getCard();
             hit();
             Check.playerCheck();
+            if (Check.loss.equals("True"));
+
+
         }
         else if (userAnswer.toLowerCase().equals(stand)){
             Check.playerCheck();
