@@ -25,7 +25,7 @@ public class Dealer {
     public static int eHeart = 13;
     public static int eSpades = 13;
     public static int eClubs = 13;
-    public static int eDiamonds =13;
+    public static int eDiamonds = 13;
 
 
     public static void initialize(){

@@ -20,6 +20,7 @@ public class BlackJack {
 
  // Asks for whether the user wants to play
     public static void ask() {
+
         Scanner scannerObject = new Scanner(System.in);
         System.out.println("----- [PLAY BLACKJACK.] [yes/no] -----");
         String userAnswer = scannerObject.nextLine();
