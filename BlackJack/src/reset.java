@@ -32,5 +32,7 @@ public class reset {
 
         Dealer.userHand = 0;
         Dealer.userHandCards.clear();
+        Dealer.opponentHand = 0;
+        Dealer.userHandCards.clear();
     }
 }
