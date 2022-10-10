@@ -16,9 +16,13 @@ public class Dealer {
     public static int setSuit = 0;
     public static String useSuit = "";
 
+    //user's hand
     public static int userHand = 0;
-
     public static ArrayList<String> userHandCards = new ArrayList<>();
+
+    //dealer's hand
+    public static int opponentHand = 0;
+    public static ArrayList<String> opponentCards = new ArrayList<>();
 
     // used to change the range of the card picking function, so it doesn't go over the actual range and break
     public static int eHeart = 13;
@@ -47,7 +51,6 @@ public class Dealer {
     }
     public static void suit()  {
         randomizer();
-        System.out.println(setSuit);
 
         if (setSuit == 1) {
             useSuit = "hearts";
@@ -169,5 +172,93 @@ public class Dealer {
         System.out.println("[Your total: " + userHand + "]");
         Check.playerCheck();
     }
+    public static void opponentCard() {
+        //takes out the cards
+        if (useSuit.equals("hearts")) {
+            int randomCard = ((int) Math.floor(Math.random() * eHeart) + 1);
+            int eRange = randomCard - 1;
 
+            if (hearts.get(eRange).equals("ace")) {
+                opponentHand += 11;
+                String card = hearts.remove(eRange);
+                opponentCards.add(card + " of HEARTS");
+            } else if (hearts.get(eRange).equals("ten") || hearts.get(eRange).equals("jack") || hearts.get(eRange).equals("queen") || hearts.get(eRange).equals("king")) {
+                opponentHand += 10;
+                String card = hearts.remove(eRange);
+                opponentCards.add(card + " of HEARTS");
+            } else {
+                int cardNumber = Integer.parseInt(hearts.get(eRange));
+                opponentHand += cardNumber;
+                String card = hearts.remove(eRange);
+                opponentCards.add(card + " of HEARTS");
+            }
+            eHeart--;
+        }
+
+        if (useSuit.equals("spades")) {
+            int randomCard = ((int) Math.floor(Math.random() * eSpades) + 1);
+            int eRange = randomCard - 1;
+            if (spades.get(eRange).equals("ace")) {
+                opponentHand += 11;
+                String card = spades.remove(eRange);
+                opponentCards.add(card + " of SPADES");
+
+
+            } else if (spades.get(eRange).equals("ten") || spades.get(eRange).equals("jack") || spades.get(eRange).equals("queen") || spades.get(eRange).equals("king")) {
+                opponentHand += 10;
+                String card = spades.remove(eRange);
+                opponentCards.add(card + " of SPADES");
+            } else {
+                int cardNumber = Integer.parseInt(spades.get(eRange));
+                opponentHand += cardNumber;
+                String card = spades.remove(eRange);
+                opponentCards.add(card + " of SPADES");
+
+            }
+            eSpades--;
+        }
+
+        if (useSuit.equals("clubs")) {
+            int randomCard = ((int) Math.floor(Math.random() * eClubs) + 1);
+            int eRange = randomCard - 1;
+            if (clubs.get(eRange).equals("ace")) {
+                opponentHand += 11;
+                String card = clubs.remove(eRange);
+                opponentCards.add(card + " of CLUBS");
+            } else if (clubs.get(eRange).equals("ten") || clubs.get(eRange).equals("jack") || clubs.get(eRange).equals("queen") || clubs.get(eRange).equals("king")) {
+                opponentHand += 10;
+                String card = clubs.remove(eRange);
+                opponentCards.add(card + " of CLUBS");
+            } else {
+                int cardNumber = Integer.parseInt(clubs.get(eRange));
+                opponentHand += cardNumber;
+                String card = clubs.remove(eRange);
+                opponentCards.add(card + " of CLUBS");
+
+            }
+            eClubs--;
+
+        }
+        if (useSuit.equals("diamonds")) {
+            int randomCard = ((int) Math.floor(Math.random() * eDiamonds) + 1);
+            int eRange = randomCard - 1;
+            if (diamonds.get(eRange).equals("ace")) {
+                opponentHand += 11;
+                String card = diamonds.remove(eRange);
+                opponentCards.add(card + " of DIAMONDS");
+
+            } else if (diamonds.get(eRange).equals("ten") || diamonds.get(eRange).equals("jack") || diamonds.get(eRange).equals("queen") || diamonds.get(eRange).equals("king")) {
+                opponentHand += 10;
+                String card = diamonds.remove(eRange);
+                opponentCards.add(card + " of DIAMONDS");
+            } else {
+                int cardNumber = Integer.parseInt(diamonds.get(eRange));
+                opponentHand += cardNumber;
+                String card = diamonds.remove(eRange);
+                opponentCards.add(card + " of DIAMONDS");
+
+            }
+            eDiamonds--;
+        }
+    }
 }
