@@ -27,11 +27,11 @@ public class BlackJack {
         String yes = "yes";
         String no = "no";
         if (userAnswer.toLowerCase().equals(yes)) {
-            try {
-                loadingBar.bar();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
+//            try {
+//                loadingBar.bar();
+//            } catch (Exception e) {
+//                throw new RuntimeException(e);
+//            }
             System.out.println(" ");
             System.out.println(" ");
             System.out.println("[GAME INITIALIZED]");
@@ -49,8 +49,9 @@ public class BlackJack {
 
     public static void play() {
         Dealer.initialize();
+        reset.copy();
         if (Dealer.userHandCards.size() < 2) {
-            Dealer.getCard();
+            Dealer.suit();
         }
         hit();
 
@@ -62,11 +63,8 @@ public class BlackJack {
         String hit = "hit";
         String stand = "stand";
         if (userAnswer.toLowerCase().equals(hit)){
-            Dealer.getCard();
+            Dealer.suit();
             hit();
-            Check.playerCheck();
-            if (Check.loss.equals("True"));
-
 
         }
         else if (userAnswer.toLowerCase().equals(stand)){

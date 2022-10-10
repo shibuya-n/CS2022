@@ -13,15 +13,14 @@ public class Dealer {
 
 
     public static String[] cardList = {"ace", "2", "3", "4", "5", "6", "7", "8", "9", "ten", "jack", "queen", "king"};
-    public static double randomSuit = ((Math.random() * 4) + 1);
-    public static int setSuit = (int)Math.round(randomSuit);
+    public static int setSuit = 0;
     public static String useSuit = "";
 
     public static int userHand = 0;
 
     public static ArrayList<String> userHandCards = new ArrayList<>();
 
-    public static int eNum = 13;
+    // used to change the range of the card picking function, so it doesn't go over the actual range and break
     public static int eHeart = 13;
     public static int eSpades = 13;
     public static int eClubs = 13;
@@ -42,22 +41,28 @@ public class Dealer {
         }
     }
 
+    public static void randomizer() {
+        setSuit = ((int)Math.floor(Math.random() * 4) + 1);
+
+    }
     public static void suit()  {
+        randomizer();
+        System.out.println(setSuit);
 
         if (setSuit == 1) {
-            useSuit = useSuit + "hearts";
+            useSuit = "hearts";
             getCard();
         }
         if (setSuit == 2) {
-            useSuit = useSuit + "spades";
+            useSuit = "spades";
             getCard();
         }
         if (setSuit == 3){
-            useSuit = useSuit + "clubs";
+            useSuit = "clubs";
             getCard();
         }
         if (setSuit == 4){
-            useSuit = useSuit + "diamonds";
+            useSuit = "diamonds";
             getCard();
         }
 
@@ -77,7 +82,7 @@ public class Dealer {
             else if (hearts.get(eRange).equals("ten") || hearts.get(eRange).equals("jack") || hearts.get(eRange).equals("queen") || hearts.get(eRange).equals("king")) {
                 userHand += 10;
                 String card = hearts.remove(eRange);
-                userHandCards.add(card + "of HEARTS");
+                userHandCards.add(card + " of HEARTS");
             }
             else {
                 int cardNumber = Integer.parseInt(hearts.get(eRange));
@@ -137,7 +142,7 @@ public class Dealer {
 
         }
         if (useSuit.equals("diamonds")) {
-            int randomCard = ((int)Math.floor(Math.random() * eNum) + 1);
+            int randomCard = ((int)Math.floor(Math.random() * eDiamonds) + 1);
             int eRange = randomCard - 1;
             if (diamonds.get(eRange).equals("ace")) {
                 userHand += 11;
@@ -162,7 +167,6 @@ public class Dealer {
         System.out.println("[Hit!]");
         System.out.println("{Your cards: " + userHandCards + "}");
         System.out.println("[Your total: " + userHand + "]");
-        eNum--;
         Check.playerCheck();
     }
 
