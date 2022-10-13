@@ -2,75 +2,43 @@ import java.util.Scanner;
 
 
 public class Check {
-    public static void playerCheck() {
-        if (Dealer.userHand > 21) {
-            lose();
-
-        }
-    }
 
     public static void lose() {
         reset.resetFunc();
         System.out.println("[YOU LOSE!/BUST!]");
-        Scanner scannerObject = new Scanner(System.in);
-        System.out.println("----- [PLAY AGAIN?] [yes/no] -----");
-        String userAnswer = scannerObject.nextLine();
-        String yes = "yes";
-        String no = "no";
-        if (userAnswer.toLowerCase().equals(yes)) {
-//            try {
-//                loadingBar.bar();
-//            } catch (Exception e) {
-//                throw new RuntimeException(e);
-//            }
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println("[GAME INITIALIZED]");
-            BlackJack.play();
-
-
-        } else if (userAnswer.toLowerCase().equals(no)) {
-            System.out.println("see you next time...");
-        } else {
-            System.out.println("[SYNTAX ERROR. PLEASE TRY AGAIN.]");
-            BlackJack.ask();
-        }
+        playAgain.play();
+    }
+    public static void draw() {
+        reset.resetFunc();
+        System.out.println("[DRAW!]");
+        playAgain.play();
     }
     public static void win(){
+        reset.resetFunc();
         System.out.println("[YOU WIN!]");
-        Scanner scannerObject = new Scanner(System.in);
-        System.out.println("----- [PLAY AGAIN?] [yes/no] -----");
-        String userAnswer = scannerObject.nextLine();
-        String yes = "yes";
-        String no = "no";
-        if (userAnswer.toLowerCase().equals(yes)) {
-//            try {
-//                loadingBar.bar();
-//            } catch (Exception e) {
-//                throw new RuntimeException(e);
-//            }
-            System.out.println(" ");
-            System.out.println(" ");
-            System.out.println("[GAME INITIALIZED]");
-            BlackJack.play();
-        } else if (userAnswer.toLowerCase().equals(no)) {
-            System.out.println("see you next time...");
-        } else {
-            System.out.println("[SYNTAX ERROR. PLEASE TRY AGAIN.]");
-            BlackJack.ask();
+        playAgain.play();
+
+    }
+    public static void playerCheck() {
+        if ((Dealer.userHand > 21) && (Dealer.opponentHand > 21)) {
+            lose();
+
         }
     }
-//    public static void dealerCheck() {
-//        if (Dealer.opponentHand > 21 && )
-//        else if (Dealer.opponentHand > 21) {
-//            System.out.println("[DEALER BUST]");
-//            win();
-//        }
-//        else if (Dealer.opponentHand == 21) {
-//            if (Dealer.userHand == 21) {
-//                System.out.println("[DRAW]");
-//
-//            }
-//        }
+    public static void dealerCheck() {
+        if ((Dealer.opponentHand > 21) && (Dealer.userHand > 21)) {
+            draw();
+
+        }
+        else if (Dealer.opponentHand > 21) {
+                System.out.println("[DEALER BUST]");
+                win();
+            } else if (Dealer.opponentHand == 21) {
+                if (Dealer.userHand == 21) {
+                    System.out.println("[DRAW]");
+
+                }
+            }
+        }
     }
 }

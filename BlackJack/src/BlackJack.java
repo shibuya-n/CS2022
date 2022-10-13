@@ -69,7 +69,7 @@ public class BlackJack {
             System.out.println();
             Dealer.suit();
             hit();
-
+                ask();
 
         }
         else if (userAnswer.toLowerCase().equals(stand)){
