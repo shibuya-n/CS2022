@@ -194,14 +194,13 @@ public class Dealer {
         System.out.println("[Hit!]");
         System.out.println("{Your cards: " + userHandCards + "}");
         System.out.println("[Your total: " + userHand + "]");
-        Check.playerCheck();
+        Check.bust();
     }
     public static void opponentCard() {
         //takes out the cards
         if (opponentUseSuit.equals("hearts")) {
             int randomCard = ((int) Math.floor(Math.random() * eHeart) + 1);
             int eRange = randomCard - 1;
-
             if (hearts.get(eRange).equals("ace")) {
                 opponentHand += 11;
                 String card = hearts.remove(eRange);

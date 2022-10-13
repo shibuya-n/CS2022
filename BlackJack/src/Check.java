@@ -19,26 +19,27 @@ public class Check {
         playAgain.play();
 
     }
-    public static void playerCheck() {
+
+    //checks while the drawing process whether the player or dealer has busted
+    public static void bust() {
         if ((Dealer.userHand > 21) && (Dealer.opponentHand > 21)) {
-            lose();
-
-        }
-    }
-    public static void dealerCheck() {
-        if ((Dealer.opponentHand > 21) && (Dealer.userHand > 21)) {
+            System.out.println("[BOTH PLAYERS BUST.]");
             draw();
-
         }
         else if (Dealer.opponentHand > 21) {
-                System.out.println("[DEALER BUST]");
-                win();
-            } else if (Dealer.opponentHand == 21) {
-                if (Dealer.userHand == 21) {
-                    System.out.println("[DRAW]");
-
-                }
-            }
+            System.out.println("[DEALER BUST.]");
+            win();
         }
+        else if (Dealer.userHand > 21) {
+            System.out.println("[BUST!]");
+            lose();
+        }
+        else {
+            System.out.print("");
+        }
+
+    }
+    public static void winLose(){
+        if (BlackJack.hit().userAnswer.equals("stand")) && ()
     }
 }

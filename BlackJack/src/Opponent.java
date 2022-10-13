@@ -11,11 +11,12 @@ public class Opponent {
             Dealer.opponentSuit();
             System.out.println("[DEALER HIT]");
             System.out.println(Dealer.opponentHand);
-            Check.dealerCheck();
+            Check.bust();
         }
         else {
             System.out.println("[DEALER STANDS]");
-            Check.dealerCheck();
+
+            Check.bust();
         }
 
 
