@@ -40,7 +40,7 @@ public class Check {
 
     }
     public static void winLose(){
-        if (BlackJack.isPlayerStand && BlackJack.isDealerStand) {
+        if ((BlackJack.isPlayerStand) && (BlackJack.isDealerStand)) {
             if ((21 - Dealer.userHand) == (21 - Dealer.opponentHand)){
                 draw();
             }
