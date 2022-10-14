@@ -11,7 +11,8 @@ import java.util.Scanner;
 public class BlackJack {
 
     public static int score = 0;
-    public static boolean stand = true;
+    public static boolean isPlayerStand = false;
+    public static boolean isDealerStand =  false;
 
     public static void main(String[] args) {
         ask();
@@ -66,16 +67,18 @@ public class BlackJack {
         String hit = "hit";
         String stand = "stand";
         if (userAnswer.toLowerCase().equals(hit)){
+            Dealer.suit();
             Opponent.opponentDraw();
             System.out.println();
-            Dealer.suit();
+            Check.winLose();
             hit();
-                ask();
 
         }
         else if (userAnswer.toLowerCase().equals(stand)){
             Check.bust();
             Opponent.opponentDraw();
+            isPlayerStand = true;
+            Check.winLose();
             System.out.println();
         }
         else {
