@@ -1,8 +1,9 @@
 import java.util.*;
-import java.util.stream.*;
 
 //Deals the cards
 public class Dealer {
+
+    // card lists
     public static ArrayList<String> hearts = new ArrayList<>();
 
     public static ArrayList<String> spades = new ArrayList<>();
@@ -37,6 +38,8 @@ public class Dealer {
         cardAdder();
         suit();
     }
+
+    // loads all the cards into the lists
     public static void cardAdder() {
         for (String s : cardList) {
             hearts.add(s);
@@ -47,10 +50,14 @@ public class Dealer {
         }
     }
 
+    // selects the suit that the card picker picks from
+
     public static void randomizer() {
         setSuit = ((int)Math.floor(Math.random() * 4) + 1);
 
     }
+
+
     public static void suit()  {
         randomizer();
 
@@ -94,14 +101,18 @@ public class Dealer {
         }
     }
 
+    // deals a random card to the player
     public static void getCard() {
-        //takes out the cards
+
         if (useSuit.equals("hearts")) {
             int randomCard = ((int)Math.floor(Math.random() * eHeart) + 1);
             int eRange = randomCard - 1;
 
             if (hearts.get(eRange).equals("ace")) {
-                userHand += 11;
+                userHand += 1;
+                if (userHand + 10 <= 21){
+                    userHand += 10;
+                }
                 String card = hearts.remove(eRange);
                 userHandCards.add(card + " of HEARTS");
             }
@@ -123,8 +134,11 @@ public class Dealer {
             int randomCard = ((int)Math.floor(Math.random() * eSpades) + 1);
             int eRange = randomCard - 1;
             if (spades.get(eRange).equals("ace")) {
-                userHand += 11;
-                String card = spades.remove(eRange);
+                userHand += 1;
+                if (userHand + 10 <= 21) {
+                    userHand += 10;
+                }
+                    String card = spades.remove(eRange);
                 userHandCards.add(card + " of SPADES");
 
 
@@ -148,7 +162,10 @@ public class Dealer {
             int randomCard = ((int)Math.floor(Math.random() * eClubs) + 1);
             int eRange = randomCard - 1;
             if (clubs.get(eRange).equals("ace")) {
-                userHand += 11;
+                userHand += 1;
+                if (userHand + 10 <= 21) {
+                    userHand += 10;
+                }
                 String card = clubs.remove(eRange);
                 userHandCards.add(card + " of CLUBS");
             }
@@ -172,7 +189,10 @@ public class Dealer {
             int randomCard = ((int)Math.floor(Math.random() * eDiamonds) + 1);
             int eRange = randomCard - 1;
             if (diamonds.get(eRange).equals("ace")) {
-                userHand += 11;
+                userHand += 1;
+                if (userHand + 10 <= 21) {
+                    userHand += 10;
+                }
                 String card = diamonds.remove(eRange);
                 userHandCards.add(card  + " of DIAMONDS");
 
@@ -196,13 +216,18 @@ public class Dealer {
         System.out.println("[Your total: " + userHand + "]");
         Check.bust();
     }
+
+    // deals random cards to the dealer or opponent
     public static void opponentCard() {
         //takes out the cards
         if (opponentUseSuit.equals("hearts")) {
             int randomCard = ((int) Math.floor(Math.random() * eHeart) + 1);
             int eRange = randomCard - 1;
             if (hearts.get(eRange).equals("ace")) {
-                opponentHand += 11;
+                opponentHand += 1;
+                if (opponentHand + 10 <= 21) {
+                    opponentHand += 10;
+                }
                 String card = hearts.remove(eRange);
                 opponentHandCards.add(card + " of HEARTS");
             } else if (hearts.get(eRange).equals("ten") || hearts.get(eRange).equals("jack") || hearts.get(eRange).equals("queen") || hearts.get(eRange).equals("king")) {
@@ -222,7 +247,10 @@ public class Dealer {
             int randomCard = ((int) Math.floor(Math.random() * eSpades) + 1);
             int eRange = randomCard - 1;
             if (spades.get(eRange).equals("ace")) {
-                opponentHand += 11;
+                opponentHand += 1;
+                if (opponentHand + 10 <= 21) {
+                    opponentHand += 10;
+                }
                 String card = spades.remove(eRange);
                 opponentHandCards.add(card + " of SPADES");
 
@@ -245,7 +273,10 @@ public class Dealer {
             int randomCard = ((int) Math.floor(Math.random() * eClubs) + 1);
             int eRange = randomCard - 1;
             if (clubs.get(eRange).equals("ace")) {
-                opponentHand += 11;
+                opponentHand += 1;
+                if (opponentHand + 10 <= 21) {
+                    opponentHand += 10;
+                }
                 String card = clubs.remove(eRange);
                 opponentHandCards.add(card + " of CLUBS");
             } else if (clubs.get(eRange).equals("ten") || clubs.get(eRange).equals("jack") || clubs.get(eRange).equals("queen") || clubs.get(eRange).equals("king")) {
@@ -267,7 +298,10 @@ public class Dealer {
             int randomCard = ((int) Math.floor(Math.random() * eDiamonds) + 1);
             int eRange = randomCard - 1;
             if (diamonds.get(eRange).equals("ace")) {
-                opponentHand += 11;
+                opponentHand += 1;
+                if (opponentHand + 10 <= 21) {
+                    opponentHand += 10;
+                }
                 String card = diamonds.remove(eRange);
                 opponentHandCards.add(card + " of DIAMONDS");
 

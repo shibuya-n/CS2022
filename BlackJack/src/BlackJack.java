@@ -10,9 +10,10 @@ import java.util.Scanner;
 
 public class BlackJack {
 
+    //keeps track of the Player's scores and whether the players stand or not
     public static int score = 0;
     public static boolean isPlayerStand = false;
-    public static boolean isDealerStand =  false;
+    public static boolean isDealerStand = false;
 
     public static void main(String[] args) {
         ask();
@@ -28,19 +29,19 @@ public class BlackJack {
         String userAnswer = scannerObject.nextLine();
         String yes = "yes";
         String no = "no";
-        if (userAnswer.toLowerCase().equals(yes)) {
-//            try {
-//                loadingBar.bar();
-//            } catch (Exception e) {
-//                throw new RuntimeException(e);
-//            }
+        if (userAnswer.toLowerCase().trim().equals(yes)) {
+            try {
+                loadingBar.bar();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
             System.out.println(" ");
             System.out.println(" ");
-            System.out.println("[GAME INITIALIZED]");
+            System.out.println("---- [GAME INITIALIZED. SCORE: " + score + "]");
             play();
 
 
-        } else if (userAnswer.toLowerCase().equals(no)) {
+        } else if (userAnswer.toLowerCase().trim().equals(no)) {
             System.out.println("see you next time...");
         } else {
             System.out.println("[SYNTAX ERROR. PLEASE TRY AGAIN.]");
@@ -49,9 +50,11 @@ public class BlackJack {
         }
     }
 
+    //starts the game, copy saves a clean copy of all the arrays and variables to load later, and initialize prepares the deck + starts the game
     public static void play() {
         Dealer.initialize();
         reset.copy();
+
 
         if (Dealer.userHandCards.size() < 2) {
             Dealer.suit();
@@ -60,13 +63,17 @@ public class BlackJack {
         hit();
 
     }
+
+    // allows the player to draw another card or stand
     public static void hit(){
         Scanner scannerObject = new Scanner(System.in);
         System.out.println("----- [DRAW A CARD?] [hit/stand] -----");
         String userAnswer = scannerObject.nextLine();
         String hit = "hit";
         String stand = "stand";
-        if (userAnswer.toLowerCase().equals(hit)){
+
+
+        if (userAnswer.toLowerCase().trim().equals(hit)){
             Dealer.suit();
             Opponent.opponentDraw();
             System.out.println();
@@ -74,12 +81,15 @@ public class BlackJack {
             hit();
 
         }
-        else if (userAnswer.toLowerCase().equals(stand)){
+        else if (userAnswer.toLowerCase().trim().equals(stand)){
             Check.bust();
-            Opponent.opponentDraw();
             isPlayerStand = true;
+            System.out.println("[STAND!]");
+            System.out.println("{Your cards: " + Dealer.userHandCards + "}");
+            System.out.println("[Your total: " + Dealer.userHand + "]");
             Check.winLose();
             System.out.println();
+            Opponent.opponentDraw();
         }
         else {
             System.out.println("[SYNTAX ERROR. PLEASE TRY AGAIN.]");

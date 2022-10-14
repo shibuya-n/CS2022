@@ -1,4 +1,8 @@
+
+// opponent's ai and decision making
 public class Opponent {
+
+    // decides whether to hit or stay
     public static void opponentDraw() {
         if (Dealer.opponentHandCards.size() < 2) {
             System.out.println();
@@ -6,7 +10,6 @@ public class Opponent {
             Dealer.opponentSuit();
         }
         System.out.println("{Dealer's FIRST card: " + Dealer.opponentHandCards.get(0) + "}");
-        System.out.println(Dealer.opponentHand);
 
         if (Dealer.opponentHand < 16) {
             Dealer.opponentSuit();
@@ -15,9 +18,9 @@ public class Opponent {
         else {
             System.out.println("[DEALER STANDS]");
             BlackJack.isDealerStand = true;
+            System.out.println("{Dealer's FIRST card: " + Dealer.opponentHandCards.get(0) + "}");
             Check.winLose();
         }
-        System.out.println(Dealer.opponentHand);
         Check.bust();
         BlackJack.hit();
 
