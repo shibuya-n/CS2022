@@ -23,15 +23,15 @@ public class Check {
     //checks while the drawing process whether the player or dealer has busted
     public static void bust() {
         if ((Dealer.userHand > 21) && (Dealer.opponentHand > 21)) {
-            System.out.println("[BOTH PLAYERS BUST.]");
+            System.out.println("[DRAW | BOTH PLAYERS BUST.]");
             draw();
         }
-        else if (Dealer.opponentHand > 21) {
+        else if ((Dealer.opponentHand > 21) || (Dealer.userHand == 21)) {
             System.out.println("[DEALER BUST.]");
             win();
         }
-        else if (Dealer.userHand > 21) {
-            System.out.println("[BUST!]");
+        else if ((Dealer.userHand > 21) || (Dealer.opponentHand == 21)) {
+            System.out.println("[BUST! | OPPONENT BLACKJACK!]");
             lose();
         }
         else {
@@ -40,6 +40,17 @@ public class Check {
 
     }
     public static void winLose(){
-        if (BlackJack.hit().userAnswer.equals("stand")) && ()
+        if ((BlackJack.isPlayerStand) && (BlackJack.isDealerStand)) {
+            if ((21 - Dealer.userHand) == (21 - Dealer.opponentHand)){
+                draw();
+            }
+            else if ((21 - Dealer.userHand) > (21 - Dealer.opponentHand)) {
+                lose();
+            }
+            else {
+                win();
+            }
+
+        }
     }
 }
