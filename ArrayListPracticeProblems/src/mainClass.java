@@ -7,13 +7,14 @@
 
 import java.util.Scanner;
 
-public class arrayList {
+public class mainClass {
 
     public static int arrayLength = 0;
     public static int[] userArray = new int[arrayLength];
 
     public static void main(String[] args) {
         ask();
+        ascendingOrDescending();
     }
     public static void ascendingOrDescending() {
         Scanner askUpOrDown = new Scanner(System.in);
@@ -21,13 +22,13 @@ public class arrayList {
         String userUpOrDown = askUpOrDown.nextLine();
 
         if (userUpOrDown.equals("asc")) {
-            System.out.println("hi");
+            order.sort();
 
 
         }
-        else if (userUpOrDown.equals("desc")) {
-
-        }
+//        else if (userUpOrDown.equals("desc")) {
+//
+//        }
 
         else {
             System.out.println("INVALID SYNTAX. PLEASE TRY AGAIN.");
@@ -51,7 +52,6 @@ public class arrayList {
             userArray[i]  = userValue;
 
         }
-        System.out.println(userArray);
         }
 
 
